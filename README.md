@@ -103,3 +103,5 @@ For Macos
 * **AFL++ Documentation:** Refer to the official AFL++ documentation for more advanced options and techniques.
 * This example minimizes the setup required for persistent mode fuzzing, and it is ready to be run.
 
+## Result
+![Test run](screenshots/test_run.png)
