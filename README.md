@@ -24,9 +24,9 @@ The mapping would be:
 
 For Macos
 
-    ```bash
-    brew install afl++
-    ```
+```bash    
+brew install afl++
+```
 
 **Compilation and Fuzzing:**
 
@@ -96,9 +96,9 @@ extern "C" int LLVMFuzzerTestOneInput(const char *data, size_t size)
 # Run with CMPLOG
     **Run AFL++ in persistent mode:**
 
-    ```bash
+```bash
         afl-fuzz -i input -o output -c ./add_ints ./add_ints
-    ```
+```
 
     * `-i input`: Specifies the input directory.
     * `-o output`: Specifies the output directory (where crashes and new test cases will be stored).
