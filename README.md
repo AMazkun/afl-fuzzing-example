@@ -32,13 +32,39 @@ For Macos
 
 1.  **Copy and save the code:** Save the C++ code as `add_ints.cpp`.
 
-2.  **Compile for Fuzzing (with AFL++ instrumentation):**
+    This code is adapter for afl accessing **interval_map** object setup metod **m.assign(a, b, c);** to test.
+
+    AFL sends generated data throw uint8 * data with size - you have to copy them into parameters. 
+    
+   ```bash
+interval_map<int, char> m('A');
+
+extern "C" int LLVMFuzzerTestOneInput(const char *data, size_t size)
+{
+
+    int a, b;
+    char c;
+
+    if (size >= 9)
+    {
+        memcpy(&a, data, 4);
+        memcpy(&b, data + 4, 4);
+        memcpy(&c, data + 8, 1);
+
+        m.assign(a, b, c);
+    }
+
+    return 0;
+}
+   ```
+
+3.  **Compile for Fuzzing (with AFL++ instrumentation):**
 
     ```bash
     CXX=afl-clang++ afl-clang++ add_ints.cpp -o add_ints
     ```
 
-3.  **Create an input directory and inital input and seeds:**
+4.  **Create an input directory and inital input and seeds:**
     * This creates an initial input file with two integers (1 and 2) in little-endian byte order for mac M1
 
     ```bash
