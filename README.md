@@ -94,10 +94,10 @@ extern "C" int LLVMFuzzerTestOneInput(const char *data, size_t size)
     sudo afl-system-config
 
 # Run with CMPLOG
-    **Run AFL++ in persistent mode:**
+**Run AFL++ in persistent mode:**
 
 ```bash
-        afl-fuzz -i input -o output -c ./add_ints ./add_ints
+afl-fuzz -i input -o output -c ./add_ints ./add_ints
 ```
 
     * `-i input`: Specifies the input directory.
