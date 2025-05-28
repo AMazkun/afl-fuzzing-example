@@ -1,4 +1,4 @@
-# american fuzzing lop C++ example
+# american fuzzing lop plus plus (AFL++) C++ example
 
 Mathematical function (functional) is tested, which is defined using linear segments and the value on them
 A [a,b]
